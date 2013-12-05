@@ -28,7 +28,9 @@ Supports a number of common global variables but patches are welcomed if you nee
 
 - `GOOGLE_ANALYTICS` your UA-XYZ code
 
-- `USER_LOGO_URL` you don't need to replace the logo placeholder, instead put your logo in content/images/your_logo.png and make this point to `SITEURL + '/static/images/your_logo.png'`
+- `GOOGLE_PLUS_URL` A link to your Google+ profile. Used for the [Google Authorship](http://www.google.com/insidesearch/features/authorship/index.html) feature.
+
+- `USER_LOGO_URL` you don't need to replace the logo placeholder, just change this to point to another image. Can be local or remote.`
 
 - `DISQUS_SITENAME` set this to enable disqus comments in articles
 

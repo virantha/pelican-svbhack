@@ -16,6 +16,10 @@
   <meta name="author" content="{{ AUTHOR }}">
   <meta name="description" content="Posts and writings by {{ AUTHOR }}">
 
+  {% if GOOGLE_PLUS_URL%}
+  <link rel="author" href="{{ GOOGLE_PLUS_URL }}?rel=author">
+  {% endif %}
+
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
   {% if FEED_ALL_ATOM %}
