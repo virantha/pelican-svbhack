@@ -12,7 +12,7 @@
 {% block content %}
 <article>
   <div class="article_title">
-    <h3><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h3>
+    <h3><a href="{{ SITEURL }}/{{ article.url }}" class="nohover">{{ article.title }}</a></h3>
   </div>
   <div class="article_text">
     {{ article.content }}
@@ -49,7 +49,7 @@
 {% endblock %}
 
 {% block footer %}
-<p><a href="{{ SITEURL }}/" class="button_accent">&larr; Back to Index</a></p>
+<p><a href="{{ SITEURL }}/" class="nohover button_accent">&larr; Back to Index</a></p>
 <script language="javascript">
     function toggleComments() {
         var commentDiv = document.getElementById("article_comments");
