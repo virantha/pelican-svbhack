@@ -1,10 +1,6 @@
 {% extends "base.html" %}
 {% block title %}{{ page.title }}{% endblock %}
 
-{% block header %}
-<p>Updated on {{ page.locale_date }}</p>
-{% endblock %}
-
 {% block content %}
 <article>
   <div class="article_title">
@@ -16,6 +12,3 @@
 </article>
 {% endblock %}
 
-{% block footer %}
-<p><a href="{{ SITEURL }}/" class="button_accent">&larr; Back to Index</a></p>
-{% endblock %}
