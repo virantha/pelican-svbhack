@@ -31,7 +31,7 @@
   {% include "modules/analytics.html" %}
 </head>
 
-<body>
+<body onLoad="window.scroll(0, document.getElementById('main').offsetTop)">
   <aside>
     <div id="user_meta">
       <a href="{{ SITEURL }}">
@@ -60,7 +60,7 @@
     </div>
   </aside>
 
-  <main>
+  <main id="main">
     <header>
       {% block header %}
       <p>
