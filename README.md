@@ -40,6 +40,7 @@ When developing locally, you may want to set the following variable: `SITEURL = 
 
 ## MODIFICATIONS
 
+- A favicon can be added by putting a file called `favicon.ico` in the `images` folder.
 - Accent color can be changed by editing `@accent` in `./static/css/style.less`.
 - A different Pygmentize theme can be used by editing `./Makefile` and running `make pygments`.
 
