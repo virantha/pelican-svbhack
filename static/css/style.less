@@ -24,6 +24,12 @@ a {
   text-decoration: none;
 }
 
+a:not(.nohover) {
+  &:hover{
+    color: @accent;
+  }
+}
+
 hr {
   color: @light-grey;
   background-color: @light-grey;
@@ -99,9 +105,6 @@ main {
       line-height: 1.375em;
       a {
         text-decoration: underline;
-        &:hover{
-          color: @accent;
-        }
       }
 
       code {
