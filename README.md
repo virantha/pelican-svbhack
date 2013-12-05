@@ -36,8 +36,6 @@ Supports a number of common global variables but patches are welcomed if you nee
 
 - `TAGLINE` some text rendered right below the logo
 
-- `INTERNET_DEFENSE_LEAGUE` set this to `True` if you want to enable the [Internet Defense League](http://internetdefenseleague.org) code
-
 When developing locally, you may want to set the following variable: `SITEURL = http://localhost:8000`
 
 ## MODIFICATIONS
