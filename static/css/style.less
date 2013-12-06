@@ -79,10 +79,15 @@ aside {
 }
 
 main {
+  position: relative;
+  width: 100%;
+  margin: auto;
+
   header {
     padding: 40px;
     border-top: @light-grey 1px solid;
     border-bottom: @light-grey 1px solid;
+    text-align: center;
 
     p {
       font-weight: bold;
@@ -206,6 +211,7 @@ main {
     position: absolute;
     top: 0;
     left: 25%;
+    margin: 0;
     overflow-x: hidden;
     overflow-y: hidden;
 
@@ -215,6 +221,7 @@ main {
 
     header {
       border-top: 0;
+      text-align: left;
     }
   }
 }
