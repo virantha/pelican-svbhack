@@ -88,7 +88,7 @@
   <main id="main">
     <header>
       {% block header %}
-      <p>
+      <p id="header">
       <a href="{{ SITEURL }}">Home</a>
       
       {% for p in pages|sort %}
@@ -99,7 +99,6 @@
       {% if BLOG_URL %}
       &#124; <a href="{{ SITEURL }}/{{ BLOG_URL }}">Blog</a>
       {% endif %}
-      &#124; <a href="{{ SITEURL }}/{{ ARCHIVES_URL }}">Post List</a>
       {% if FEED_ALL_ATOM %}
       &#124; <a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}">Atom Feed</a>
       {% endif %}
@@ -108,6 +107,8 @@
       {% endif %}
       </p>
       {% endblock header %}
+      {% block subheader %}
+      {% endblock subheader %}
     </header>
 
     {% block content %}

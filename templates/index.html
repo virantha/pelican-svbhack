@@ -2,6 +2,10 @@
 
 {% block title %}{{ SITENAME }} - Blog{% endblock %}
 
+{% block subheader %}
+{% include "modules/blogsubheader.html" %}
+{% endblock subheader %}
+
 {% block content %}
 {% for article in articles_page.object_list %}
 <article>
