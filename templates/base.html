@@ -65,12 +65,6 @@
       <h2><a href="{{ SITEURL }}" class="nohover">{{ SITENAME }}</a></h2>
       <p>{{ TAGLINE }}</p>
       <ul>
-        {% for title, link in MENUITEMS %}
-        <li><a href="{{ link }}">{{ title }}</a></li>
-        {% endfor %}
-        {% if DISPLAY_PAGES_ON_MENU %}{% for p in pages %}
-        <li><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
-        {% endfor %}{% endif %}
         {% for name, link in LINKS %}
         <li><a href="{{ link }}" target="_blank">{{ name }}</a></li>
         {% endfor %}
@@ -87,14 +81,15 @@
       <p>
       <a href="{{ SITEURL }}">Home</a>
       
-      {% for p in pages %}
+      {% for p in pages|sort %}
       {% if p.url != "index.html" %}
       &#124; <a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a>
       {% endif %}
       {% endfor %}
-      
-      &#124; <a href="{{ SITEURL }}/blog">Blog</a>
-      &#124; <a href="{{ SITEURL }}/{{ ARCHIVES_URL }}">Article List</a>
+      {% if BLOG_URL %}
+      &#124; <a href="{{ SITEURL }}/{{ BLOG_URL }}">Blog</a>
+      {% endif %}
+      &#124; <a href="{{ SITEURL }}/{{ ARCHIVES_URL }}">Post List</a>
       {% if FEED_ALL_ATOM %}
       &#124; <a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}">Atom Feed</a>
       {% endif %}
