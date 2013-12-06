@@ -27,7 +27,7 @@ a {
   text-decoration: none;
 }
 
-a:not(.nohover) {
+a[href]:not(.nohover) {
   &:hover{
     color: @accent;
   }
@@ -216,7 +216,7 @@ main {
     div#user_meta {
       max-width: 192px;
       text-align: right;
-      margin: 0 40px 0 auto;
+      margin: 0 20px 0 auto;
     }
   }
 
