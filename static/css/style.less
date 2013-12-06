@@ -10,6 +10,9 @@
 @serif: 'PT Serif', serif;
 @mono: 'PT Mono', monospace;
 
+@side_size: 250px;
+@main_size: 755px;
+
 body {
   margin: 0;
   padding: 0;
@@ -45,7 +48,7 @@ hr {
 
 aside {
   div#user_meta {
-    padding: 40px;
+    padding: 40px 20px 40px 20px;
     text-align: center;
 
     h2 {
@@ -82,6 +85,10 @@ aside {
 }
 
 main {
+  max-width: @main_size;
+  position: relative;
+  width: 100%;
+
   header {
     padding: 20px 20px 20px 40px;
     border-top: @light-grey 1px solid;
@@ -95,7 +102,6 @@ main {
   }
 
   article {
-    max-width: 640px;
     padding: 40px;
 
     div.article_title {
@@ -194,9 +200,9 @@ main {
   }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: (@side_size + @main_size + 15px)) {
   aside {
-    width: 25%;
+    width: @side_size;
     height: 100%;
     position: fixed;
     top: 0;
@@ -210,26 +216,16 @@ main {
     div#user_meta {
       max-width: 192px;
       text-align: right;
-
-      ul {
-        li {
-          display: block;
-        }
-      }
+      margin: 0 40px 0 auto;
     }
   }
 
   main {
-    width: 75%;
     position: absolute;
     top: 0;
-    left: 25%;
+    left: @side_size;
     overflow-x: hidden;
     overflow-y: hidden;
-
-    article {
-      max-width: 640px;
-    }
 
     header {
       border-top: 0;
