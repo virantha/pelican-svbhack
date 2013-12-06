@@ -42,6 +42,8 @@ Supports a number of common global variables but patches are welcomed if you nee
 
 - `BLOG_URL` Set this if your main blog page is different from the landing page. If this is set, a new menu item called "Blog" will be added to the top menu.
 
+- `FORCE_PIXELS` Some screens (mostly mobiles) don't use pixels directly and scale based on the concept of a "display pixel". Setting this to true tells the device to use actual pixels. Enable with care.
+
 When developing locally, you may want to set the following variable: `SITEURL = http://localhost:8000`
 
 ## MODIFICATIONS

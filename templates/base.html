@@ -11,9 +11,19 @@
   <link rel="icon" href="{{ SITEURL }}/images/favicon.ico">
 
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="author" content="{{ AUTHOR }}">
   <meta name="description" content="Posts and writings by {{ AUTHOR }}">
+
+  {% if FORCE_PIXELS %}
+  <script type="text/javascript">
+    var ratio = 1/window.devicePixelRatio;
+    var tag = document.getElementById("viewport")
+    if (ratio != 1 && tag != null){
+      tag.content = "width=device-width, initial-scale=" + ratio;
+    }
+  </script>
+  {% endif %}
 
   {% if SCROLL_TO_CONTENT %}
   <script type="text/javascript">
