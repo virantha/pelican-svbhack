@@ -6,7 +6,15 @@
 {% block title %}{{ article.title }}{% endblock %}
 
 {% block subheader %}
-<p>Posted on {{ article.locale_date }}</p>
+<p>Posted
+{% if article.author %}
+ by{% if AUTHORS_URL %}
+ <a href="{{ SITEURL }}/{{ article.author.url }}">{{ article.author }}</a>
+{% else %}
+ {{ article.author}}
+{% endif %}
+{% endif %}
+on {{ article.locale_date }}</p>
 {% endblock %}
 
 {% block content %}
@@ -18,8 +26,10 @@
     {{ article.content }}
   </div>
   <div class="article_meta">
+    {% if CATEGORY_URL %}
     <p>Category: <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a></p>
-    {% if article.tags %}
+    {% endif %}
+    {% if TAG_URL and article.tags %}
     <p>Tags:
       {% for tag in article.tags %}
       <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>{% if not loop.last %},{% endif %}
