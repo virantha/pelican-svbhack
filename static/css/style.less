@@ -91,7 +91,7 @@ main {
   margin: auto;
 
   header {
-    padding: 20px 20px 20px 40px;
+    padding: 20px 40px 20px 40px;
     border-top: @light-grey 1px solid;
     border-bottom: @light-grey 1px solid;
     text-align: center;
@@ -100,6 +100,19 @@ main {
       font-weight: bold;
       font-size: 15px;
       text-transform: uppercase;
+    }
+
+    p#header {
+      color: @black;
+    }
+
+    p:not(#header){
+      a {
+        color: @dark-grey;
+        &:hover{
+          color: @accent;
+        }
+      }
     }
   }
 

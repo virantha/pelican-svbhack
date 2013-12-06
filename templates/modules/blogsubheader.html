@@ -1,0 +1,10 @@
+<p>
+{% if INDEX_SAVE_AS %}
+<a href="{{ SITEURL }}/{{ INDEX_SAVE_AS }}">Posts</a> &#124;
+{% else %}
+<a href="{{ SITEURL }}">Posts</a> &#124;
+{% endif %}
+<a href="{{ SITEURL }}/{{ TAGS_URL }}">Tags</a> &#124;
+<a href="{{ SITEURL }}/{{ CATEGORIES_URL }}">Categories</a> &#124;
+<a href="{{ SITEURL }}/{{ ARCHIVES_URL }}">Archive</a>
+</p>
