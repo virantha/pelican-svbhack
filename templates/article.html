@@ -1,4 +1,6 @@
 {% extends "base.html" %}
+{% set active_page = "article" %}
+
 {% block head %}
 <meta name="keywords" content="{{ article.tags|join(', ')  }}">
 {% endblock %}

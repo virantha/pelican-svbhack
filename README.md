@@ -44,6 +44,8 @@ Supports a number of common global variables but patches are welcomed if you nee
 
 - `FORCE_PIXELS` Some screens (mostly mobiles) don't use pixels directly and scale based on the concept of a "display pixel". Setting this to true tells the device to use actual pixels. Enable with care.
 
+- `BREADCRUMBS` If enabled, the section and subsection the user is currently in will be highlighted in the top menu.
+
 When developing locally, you may want to set the following variable: `SITEURL = http://localhost:8000`
 
 ## MODIFICATIONS
