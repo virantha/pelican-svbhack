@@ -58,7 +58,7 @@
     </div>
   </aside>
 
-  <main>
+  <main id="main">
     <header>
       {% block header %}
       <p id="header">
@@ -94,5 +94,13 @@
         <p>&copy; {{ AUTHOR }}. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Carey Metcalfe, availible on <a href="https://github.com/pR0Ps/pelican-svbhack" target="_blank">GitHub</a>. Based on <a href="https://github.com/giulivo/pelican-svbhack" target="_blank">svbhack</a> by Giulio Fidente.</p>
     </div>
   </main>
+
+  {% if SCROLL_TO_CONTENT %}
+  <script type="text/javascript">
+    if (window.location.pathname != '/' && window.location.pathname != '/index.html'){
+      window.scroll(0, document.getElementById('main').offsetTop);
+    }
+  </script>
+  {% endif %}
 </body>
 </html>
