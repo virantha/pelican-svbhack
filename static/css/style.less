@@ -13,6 +13,7 @@
 @side_size: 250px;
 @main_size: 755px;
 @border_color: #C2C2C2;
+@pag_label_size: 100px;
 
 body {
   margin: 0;
@@ -188,12 +189,19 @@ main {
       overflow: auto;
       text-align: center;
 
-      span#left{
-        float: left;
+      span {
+        width: @pag_label_size;
+        min-height: 1px;
       }
 
-      span#right{
+      span#left {
+        float: left;
+        text-align: left;
+      }
+
+      span#right {
         float: right;
+        text-align: right;
       }
     }
   }
