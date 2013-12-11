@@ -42,6 +42,8 @@ Supports a number of common global variables but patches are welcomed if you nee
 
 - `SCROLL_TO_CONTENT` If this is set to `True`, when the content is below the sidebar (for example, on mobile), the page will be scrolled down to the content when it loads. An exception is made for the home page.
 
+- `FORCE_PIXELS` Some screens (mostly mobiles) don't use pixels directly and scale based on the concept of a "display pixel". Setting this to true tells the device to use actual pixels. Enable with care.
+
 When developing locally, you may want to set the following variable: `SITEURL = http://localhost:8000`
 
 ## MODIFICATIONS

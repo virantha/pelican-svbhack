@@ -9,7 +9,7 @@
   <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
 
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width; initial-scale=1.0">
+  <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="author" content="{{ AUTHOR }}">
   <meta name="description" content="Posts and writings by {{ AUTHOR }}">
 
@@ -96,6 +96,16 @@
   <script type="text/javascript">
     if (window.location.pathname != '/' && window.location.pathname != '/index.html'){
       window.scroll(0, document.getElementById('main').offsetTop);
+    }
+  </script>
+  {% endif %}
+
+  {% if FORCE_PIXELS %}
+  <script type="text/javascript">
+    var ratio = 1/window.devicePixelRatio;
+    var tag = document.getElementById("viewport")
+    if (ratio != 1 && tag != null){
+      tag.content = "width=device-width, initial-scale=" + ratio;
     }
   </script>
   {% endif %}
