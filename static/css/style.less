@@ -184,31 +184,27 @@ main {
 
   footer {
     border-top: @light-grey 1px solid;
-    border-bottom: @light-grey 1px solid;
-    padding: 40px;
-
-    a.button_accent {
-      padding: 10px;
-      border: 2px solid @accent;
-      .border-radius(20px);
-      text-transform: uppercase;
-      color: @accent;
-      font-size: 18px;
-      &:hover {
-        color: @white;
-        background-color: @accent;
-      }
-      &:active {
-        color: @white;
-        background-color: @accent;
-      }
-    }
+    padding: 30px 40px 30px 40px;
 
     div#paginator {
+      font-weight: bold;
+      font-size: 15px;
+      text-transform: uppercase;
+      overflow: auto;
+      text-align: center;
+
+      span#left{
+        float: left;
+      }
+
+      span#right{
+        float: right;
+      }
     }
   }
 
   div#ending_message {
+    border-top: @light-grey 1px solid;
     padding: 0 40px 0 40px;
     color: @med-grey;
     font-size: 10px;

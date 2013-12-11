@@ -42,6 +42,16 @@ on {{ article.locale_date }}</p>
   </div>
 
   {% if DISQUS_SITENAME %}
+
+    {% if COLLAPSE_COMMENTS %}
+    <script language="javascript">
+        function toggleComments() {
+            var commentDiv = document.getElementById("article_comments");
+            (commentDiv.style.display == "none") ? commentDiv.style.display = "block" : commentDiv.style.display = "none";
+            return false;
+        }
+    </script>
+    {% endif %}
     <div id="article_comments" style="display:{%if COLLAPSE_COMMENTS %}none{% else %}block{% endif %}">
         <div id="disqus_thread"></div>
         <script type="text/javascript">
@@ -54,17 +64,6 @@ on {{ article.locale_date }}</p>
         </script>
     </div>
     {% endif %}
-
 </article>
 {% endblock %}
 
-{% block footer %}
-<p><a href="{{ SITEURL }}/" class="button_accent">&larr; Back to Index</a></p>
-<script language="javascript">
-    function toggleComments() {
-        var commentDiv = document.getElementById("article_comments");
-        (commentDiv.style.display == "none") ? commentDiv.style.display = "block" : commentDiv.style.display = "none";
-        return false;
-    }
-</script>
-{% endblock %}
