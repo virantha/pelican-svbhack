@@ -4,10 +4,10 @@
 <head>
   <link rel="stylesheet/less" type="text/css" href="{{ SITEURL }}/theme/css/style.less">
   <script src="{{ SITEURL }}/theme/js/less-1.5.0.min.js" type="text/javascript"></script>
-  <!-- <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/style.css"> -->
 
   <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/pygments.css">
   <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
 
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -54,7 +54,7 @@
         <li><a href="{{ link }}" target="_blank">{{ name }}</a></li>
         {% endfor %}
         {% for name, link in SOCIAL %}
-        <li><a href="{{ link }}" target="_blank">{{ name }}</a></li>
+        <li><a href="{{ link }}" target="_blank">{{ name }}<i class="fa fa-{{ name|lower|replace('email', 'envelope')|replace('\255', '-')|replace('+', 'plus')}} fa-lg"></i></a></li>
         {% endfor %}
       </ul>
     </div>
