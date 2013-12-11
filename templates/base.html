@@ -57,7 +57,11 @@
         <li><a href="{{ link }}" target="_blank">{{ name }}</a></li>
         {% endfor %}
         {% for name, link in SOCIAL %}
+        {% if MANGLE_EMAILS and 'email' in name|lower %}
+        <li><a data-email="{{ link|reverse }}" title="You need javascript enabled to view this email" href="#" class="email" target="_blank">{{ name }}</a></li>
+        {% else %}
         <li><a href="{{ link }}" target="_blank">{{ name }}</a></li>
+        {% endif %}
         {% endfor %}
       </ul>
     </div>
@@ -97,6 +101,20 @@
     if (window.location.pathname != '/' && window.location.pathname != '/index.html'){
       window.scroll(0, document.getElementById('main').offsetTop);
     }
+  </script>
+  {% endif %}
+
+  {% if MANGLE_EMAILS %}
+  <script type="text/javascript">
+    window.onload = function(){
+      var e = document.querySelectorAll(".email");
+      for (var i = 0; i < e.length; i++) {
+        e[i].href = e[i].getAttribute("data-email").split("").reverse().join("");
+        e[i].removeAttribute("data-email");
+        e[i].removeAttribute("title");
+        e[i].removeAttribute("class");
+      }
+    };
   </script>
   {% endif %}
 
