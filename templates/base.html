@@ -63,7 +63,7 @@
     </div>
   </aside>
 
-  <main>
+  <main id="main">
     <header>
       {% block header %}
       <p>
@@ -91,5 +91,13 @@
     </div>
   </main>
   {% include "modules/idl.html" %}
+
+  {% if SCROLL_TO_CONTENT %}
+  <script type="text/javascript">
+    if (window.location.pathname != '/' && window.location.pathname != '/index.html'){
+      window.scroll(0, document.getElementById('main').offsetTop);
+    }
+  </script>
+  {% endif %}
 </body>
 </html>
