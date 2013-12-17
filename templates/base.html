@@ -49,17 +49,40 @@
       <p>{{ TAGLINE }}</p>
       <ul>
         {% for name, link in LINKS %}
-        <li><a href="{{ link }}" target="_blank">{{ name }}</a></li>
+        <li><a href="{{ link }}" target="_blank">{{ name }}<i class="fa fa-external-link-square fa-lg"></i></a></li>
         {% endfor %}
+
         {% for name, link in SOCIAL %}
-        {% if 'email' in name|lower %}
-        {% if MANGLE_EMAILS %}
+
+        {% set temp = link|lower|replace('http://', '')|replace('https://', '') %}
+        {% set class = 'fa-external-link-square' %}
+
+        {% if MANGLE_EMAILS and temp.startswith('mailto:') %}
         <li><a data-email="{{ link|reverse }}" title="You need javascript enabled to view this email" href="#" class="email" target="_blank">{{ name }}<i class="fa fa-envelope fa-lg"></i></a></li>
         {% else %}
-        <li><a href="{{ link }}" target="_blank">{{ name }}<i class="fa fa-envelope fa-lg"></i></a></li>
+
+        {# Choosing a specific link icon #}
+        {%   if temp.startswith('bitbucket.org') %}{% set class = 'fa-bitbucket' %}
+        {% elif temp.startswith('facebook.com') %}{% set class = 'fa-facebook' %}
+        {% elif temp.startswith('github.com') %}{% set class = 'fa-github' %}
+        {% elif temp.startswith('linkedin.com') %}{% set class = 'fa-linkedin' %}
+        {% elif temp.startswith('pinterest.com') %}{% set class = 'fa-pinterest' %}
+        {% elif temp.startswith('plus.google.com') %}{% set class = 'fa-google-plus' %}
+        {% elif temp.startswith('stackoverflow.com') %}{% set class = 'fa-stack-overflow' %}
+        {% elif temp.startswith('twitter.com') %}{% set class = 'fa-twitter' %}
+        {% elif temp.startswith('vimeo.com') %}{% set class = 'fa-vimeo-square' %}
+        {% elif temp.startswith('youtube.com') %}{% set class = 'fa-youtube' %}
+        
+        {% elif '.stackexchange.com' in temp %}{% set class = 'fa-stack-exchange' %}
+        {% elif '.tumblr.com' in temp %}{% set class = 'fa-tumblr' %}
+        
+        {% elif temp.startswith('bitcoin:') %}{% set class = 'fa-bitcoin' %}
+        {% elif temp.startswith('irc:') %}{% set class = 'fa-comments' %}
+        {% elif temp.startswith('mailto:') %}{% set class = 'fa-envelope' %}
+        {% elif temp.startswith('skype:') %}{% set class = 'fa-skype' %}
         {% endif %}
-        {% else %}
-        <li><a href="{{ link }}" target="_blank">{{ name }}<i class="fa fa-{{ name|lower|replace('\255', '-')|replace('+', 'plus')}} fa-lg"></i></a></li>
+        
+        <li><a href="{{ link }}" target="_blank">{{ name }}<i class="fa {{ class }} fa-lg"></i></a></li>
         {% endif %}
         {% endfor %}
       </ul>
