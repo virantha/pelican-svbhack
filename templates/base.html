@@ -26,6 +26,14 @@
   {% endif %}
 
   {% block head %}
+  <meta name="keywords" content="
+    {%- if GLOBAL_KEYWORDS -%}
+      {{ GLOBAL_KEYWORDS|join(', ') }}
+      {%- if tags -%}
+        {{', '}}
+      {%- endif -%}
+    {%- endif -%}
+    {{tags|join(', ', attribute='0') }}">
   {% endblock %}
 
   <title>

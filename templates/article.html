@@ -1,6 +1,13 @@
 {% extends "base.html" %}
 {% block head %}
-<meta name="keywords" content="{{ article.tags|join(', ')  }}">
+<meta name="keywords" content="
+  {%- if GLOBAL_KEYWORDS -%}
+    {{ GLOBAL_KEYWORDS|join(', ') }}
+    {%- if article.tags -%}
+      {{', '}}
+    {%- endif -%}
+  {%- endif -%}
+  {{article.tags|join(', ') }}">
 {% endblock %}
 
 {% block title %}{{ article.title }} | {{ SITENAME }}{% endblock %}
