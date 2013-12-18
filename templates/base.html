@@ -81,6 +81,8 @@
         {% elif temp.startswith('vimeo.com') %}{% set class = 'fa-vimeo-square' %}
         {% elif temp.startswith('youtube.com') %}{% set class = 'fa-youtube' %}
         
+        {% elif temp.endswith('.pdf') %}{% set class = 'fa-file-text' %}
+        
         {% elif '.stackexchange.com' in temp %}{% set class = 'fa-stack-exchange' %}
         {% elif '.tumblr.com' in temp %}{% set class = 'fa-tumblr' %}
         
