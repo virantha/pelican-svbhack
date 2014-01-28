@@ -26,7 +26,9 @@ Clone the [repository](https://github.com/giulivo/pelican-svbhack), edit your `p
 
 Supports a number of common global variables but patches are welcomed if you need better support.
 
-- `GOOGLE_ANALYTICS` your UA-XYZ code
+- `GOOGLE_ANALYTICS_ID` your Google Analytics UA-XYZ code (None to disable analytics).
+
+- `GOOGLE_ANALYTICS_PROP` your Google Analytics property name (None to disable analytics).
 
 - `GOOGLE_PLUS_URL` A link to your Google+ profile. Used for the [Google Authorship](http://www.google.com/insidesearch/features/authorship/index.html) feature.
 
