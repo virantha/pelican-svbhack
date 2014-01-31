@@ -16,6 +16,8 @@
 @pag_label_size: 60px;
 @logo_size: 150px;
 
+@total_size: (@side_size + @main_size + 15px);
+
 body {
   margin: 0;
   padding: 0;
@@ -220,7 +222,7 @@ main {
   }
 }
 
-@media screen and (min-width: (@side_size + @main_size + 15px)) {
+@media screen and (min-width: @total_size) {
   aside {
     width: @side_size;
     height: 100%;
