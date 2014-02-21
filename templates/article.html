@@ -44,7 +44,9 @@ on {{ article.locale_date }}</p>
     </p>
     {% endif %}
     {% if DISQUS_SITENAME %}
-    <p>Comments: <a href="#" onclick="javascript:toggleComments();return false;">toggle</a></p>
+      {% if COLLAPSE_COMMENTS %}
+      <p>Comments: <a href="#" onclick="javascript:toggleComments();return false;">toggle</a></p>
+      {% endif %}
     {% endif %}
   </div>
 
