@@ -60,10 +60,6 @@
       <h2><a href="{{ SITEURL }}" class="nohover">{{ AUTHOR }}</a></h2>
       <p>{{ TAGLINE }}</p>
       <ul>
-        {% for name, link in LINKS %}
-        <li><a href="{{ link }}" target="_blank">{{ name }}<i class="fa fa-external-link-square fa-lg"></i></a></li>
-        {% endfor %}
-
         {% for name, link in SOCIAL %}
 
         {% set temp = link|lower|replace('http://', '')|replace('https://', '') %}
@@ -98,6 +94,10 @@
         
         <li><a href="{{ link }}" target="_blank">{{ name }}<i class="fa {{ class }} fa-lg"></i></a></li>
         {% endif %}
+        {% endfor %}
+        <br>
+        {% for name, link in LINKS %}
+        <li><a href="{{ link }}" target="_blank">{{ name }}<i class="fa fa-external-link-square fa-lg"></i></a></li>
         {% endfor %}
       </ul>
     </div>
