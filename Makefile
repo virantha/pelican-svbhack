@@ -10,3 +10,6 @@ STYLE = default
 
 pygments:
 	pygmentize -S ${STYLE} -f html > ./static/css/pygments.css
+
+style:
+	lessc static/css/style.less > static/css/style.css
