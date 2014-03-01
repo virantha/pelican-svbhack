@@ -12,6 +12,7 @@
 
 {% block title %}{{ article.title }} | {{ SITENAME }}{% endblock %}
 
+
 {% block subheader %}
 <p>Posted
 {% if article.author %}
@@ -29,6 +30,13 @@ on {{ article.locale_date }}</p>
   <div class="article_title">
     <h1><a href="{{ SITEURL }}/{{ article.url }}" class="nohover">{{ article.title }}</a></h1>
   </div>
+{% if article.toc %}
+<div class="span2 table-of-content">
+    <nav class="affix">
+    {{ article.toc }}
+    </nav>
+</div>
+{% endif %}
   <div class="article_text">
     {{ article.content }}
   </div>
