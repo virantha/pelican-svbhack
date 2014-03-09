@@ -97,6 +97,16 @@
         {% for name, link in LINKS %}
         <li><a href="{{ link }}" target="_blank">{{ name }}<i class="fa fa-external-link-square fa-lg"></i></a></li>
         {% endfor %}
+        <div class='tagmenu'>
+        <ul>
+        {% for tag, articles in tags %}
+            {% if tag in MENU_TAGS.keys() %}
+            <li><a href="/tag/{{ tag }}.html">{{ MENU_TAGS[tag] }}</a> </li>
+            {% endif %}
+        {% endfor %}
+        </ul>
+        </div>
+        
       </ul>
     </div>
   </aside>

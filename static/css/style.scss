@@ -1,52 +1,52 @@
-@red:  #ff0000;
-@black:  #000000;
-@white:  #ffffff;
-@light-grey:  #eeeeee;
-@med-grey:  #999999;
-@dark-grey:  #4d4d4d;
-@blue:  #0e94ec;
-@accent:  @blue;
-@sans: 'PT Sans', sans-serif;
-@serif: 'PT Serif', serif;
-@mono: 'PT Mono', monospace;
+$red:  #ff0000;
+$black:  #000000;
+$white:  #ffffff;
+$light-grey:  #eeeeee;
+$med-grey:  #999999;
+$dark-grey:  #4d4d4d;
+$blue:  #0e94ec;
+$accent:  $blue;
+$sans: 'PT Sans', sans-serif;
+$serif: 'PT Serif', serif;
+$mono: 'PT Mono', monospace;
 
-@side_size: 250px;
-@main_size: 755px;
-@border_color: #C2C2C2;
-@pag_label_size: 60px;
-@logo_size: 150px;
+$side_size: 250px;
+$main_size: 755px;
+$border_color: #C2C2C2;
+$pag_label_size: 60px;
+$logo_size: 150px;
 
-@total_size: (@side_size + @main_size + 15px);
+$total_size: ($side_size + $main_size + 15px);
 
 body {
   margin: 0;
   padding: 0;
-  background-color: @white;
-  color: @dark-grey;
-  font-family: @sans;
+  background-color: $white;
+  color: $dark-grey;
+  font-family: $sans;
   font-size: 18px;
 }
 
 a {
-  color: @black;
+  color: $black;
   text-decoration: none;
 }
 
 a[href]:not(.nohover) {
   &:hover{
-    color: @accent;
+    color: $accent;
   }
 }
 
 hr {
-  color: @border_color;
-  background-color: @border_color;
+  color: $border_color;
+  background-color: $border_color;
   height: 1px;
   border: none;
 }
 
 div.tagmenu {
-    border-top: @border_color 1px solid;
+    border-top: $border_color 1px solid;
     h2 {
         text-align: center;
         font-weight: bold;
@@ -63,8 +63,8 @@ aside {
     text-align: center;
 
     img#logo {
-        width: @logo_size;
-        height: @logo_size;
+        width: $logo_size;
+        height: $logo_size;
     }
 
     h2 {
@@ -89,7 +89,7 @@ aside {
         a {
           i {
               padding-left: 5px;
-              color: @black;
+              color: $black;
               width: 30px;
               text-align: center;
               vertical-align: middle;
@@ -102,15 +102,15 @@ aside {
 
 
 main {
-  max-width: @main_size;
+  max-width: $main_size;
   position: relative;
   width: 100%;
   margin: auto;
 
   header {
     padding: 20px 40px 20px 40px;
-    border-top: @border_color 1px solid;
-    border-bottom: @border_color 1px solid;
+    border-top: $border_color 1px solid;
+    border-bottom: $border_color 1px solid;
     text-align: center;
 
     p {
@@ -120,14 +120,14 @@ main {
     }
 
     p#header {
-      color: @black;
+      color: $black;
     }
 
     p:not(#header){
       a {
-        color: @dark-grey;
+        color: $dark-grey;
         &:hover{
-          color: @accent;
+          color: $accent;
         }
       }
     }
@@ -230,20 +230,20 @@ ul.auto-toc li {
       code {
         margin: 2px;
         padding: 0;
-        color: @black;
+        color: $black;
         font-size: 14px;
-        font-family: @mono;
-        background: @light-grey;
+        font-family: $mono;
+        background: $light-grey;
       }
 
       pre {
         margin: 22px 2px 22px 2px;
         padding: 2px;
-        color: @black;
-        border-left: 3px solid @accent;
+        color: $black;
+        border-left: 3px solid $accent;
         font-size: 14px;
-        font-family: @mono;
-        background: @light-grey;
+        font-family: $mono;
+        background: $light-grey;
         line-height: 1.125em;
         overflow-x: auto;
       }
@@ -251,7 +251,7 @@ ul.auto-toc li {
       blockquote {
         margin: 22px 2px 22px 2px;
         padding-left: 40px;
-        color: @med-grey;
+        color: $med-grey;
         font-style: italic;
       }
 
@@ -277,12 +277,12 @@ ul.auto-toc li {
 
     div.article_meta {
       font-size: 12px;
-      color: @med-grey;
+      color: $med-grey;
     }
   }
 
   footer {
-    border-top: @border_color 1px solid;
+    border-top: $border_color 1px solid;
     padding: 30px 40px 30px 40px;
 
     div#paginator {
@@ -293,7 +293,7 @@ ul.auto-toc li {
       text-align: center;
 
       span {
-        width: @pag_label_size;
+        width: $pag_label_size;
         min-height: 1px;
       }
 
@@ -310,16 +310,16 @@ ul.auto-toc li {
   }
 
   div#ending_message {
-    border-top: @border_color 1px solid;
+    border-top: $border_color 1px solid;
     padding: 0 40px 0 40px;
-    color: @med-grey;
+    color: $med-grey;
     font-size: 10px;
   }
 }
 
-@media screen and (min-width: @total_size) {
+@media screen and (min-width: $total_size) {
   aside {
-    width: @side_size;
+    width: $side_size;
     height: 100%;
     position: fixed;
     top: 0;
@@ -339,9 +339,9 @@ ul.auto-toc li {
   main {
     position: absolute;
     top: 0;
-    left: @side_size;
+    left: $side_size;
     margin: 0;
-    border-left: @border_color 1px solid;
+    border-left: $border_color 1px solid;
     overflow-x: hidden;
     overflow-y: hidden;
 
