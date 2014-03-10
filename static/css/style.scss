@@ -5,6 +5,8 @@ $light-grey:  #eeeeee;
 $med-grey:  #999999;
 $dark-grey:  #4d4d4d;
 $blue:  #0e94ec;
+$darkerblue: lighten(blue,30%);
+
 $accent:  $blue;
 $sans: 'PT Sans', sans-serif;
 $serif: 'PT Serif', serif;
@@ -36,6 +38,7 @@ a[href]:not(.nohover) {
   &:hover{
     color: $accent;
   }
+  
 }
 
 hr {
@@ -46,13 +49,22 @@ hr {
 }
 
 div.tagmenu {
-    border-top: $border_color 1px solid;
+    /*border-top: $border_color 1px solid;*/
+
+    a[href]:not(.nohover) {
+      color: $darkerblue;
+      &:hover{
+        color: $black;
+      }
+    }
     h2 {
         text-align: center;
         font-weight: bold;
     }
     ul {
+        display:inline;
         margin: 0px 0 0 0;
+        font-weight: bold;
     }
 
 }
@@ -315,6 +327,18 @@ ul.auto-toc li {
     color: $med-grey;
     font-size: 10px;
   }
+
+    /* Data tables styling */
+    table.pretty {
+        width: 100%;
+        clear: both;
+    }
+     
+    table.pretty td,
+    table.pretty th {
+        padding: 5px;
+        border: 1px solid #fff;
+    }  
 }
 
 @media screen and (min-width: $total_size) {
