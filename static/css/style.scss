@@ -6,8 +6,14 @@ $med-grey:  #999999;
 $dark-grey:  #4d4d4d;
 $blue:  #0e94ec;
 $darkerblue: lighten(blue,30%);
+$note-blue: #869898;
 
 $accent:  $blue;
+
+$table-blue: #B9CCFF;
+$table-odd: $table-blue;
+$table-even: lighten( $table-blue,10%);
+
 $sans: 'PT Sans', sans-serif;
 $serif: 'PT Serif', serif;
 $mono: 'PT Mono', monospace;
@@ -171,12 +177,12 @@ main {
     padding:0;
   }
   div.note p.admonition-title {
-    background-color: lighten(blue,30%);
+    background-color: $darkerblue;
     border-bottom-color: #940000;
     margin: 0;
     padding: 0.1em 0 0.1em 0.5em;
     color: white;
-    border-bottom: 1px solid #86989B;
+    border-bottom: 1px solid $darkerblue;
     font-weight: bold;
 
   }
@@ -328,18 +334,109 @@ ul.auto-toc li {
     font-size: 10px;
   }
 
-    /* Data tables styling */
-    table.pretty {
-        width: 100%;
-        clear: both;
+}
+/*
+ * DataTables framework
+ */
+div.dataTables_wrapper {
+    background-color: #FAFAFA;
+}
+
+div.dataTables_length {
+    float: left;
+}
+
+div.dataTables_filter {
+    float: right;
+}
+
+div.dataTables_info {
+    padding: 9px 6px 6px 6px;
+    float: left;
+    font-size: 70%;
+}
+
+div.dataTables_paginate {
+    float: right;
+}
+.dataTables_paginate .ui-state-disabled {
+     display:none;
+ }
+
+div.dataTables_length,
+div.dataTables_filter,
+div.dataTables_paginate {
+    padding: 6px;
+    font-size: 70%;
+}
+
+/* Self clearing - http://www.webtoolkit.info/css-clearfix.html */
+.dataTables_wrapper:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+ 
+html[xmlns] .dataTables_wrapper {
+    display: block;
+}
+ 
+* html .dataTables_wrapper {
+    height: 1%;
+}
+
+
+/*
+ * Table styles
+ */
+table.pretty {
+
+    width: 100%;
+    clear: both;
+
+    caption {
+        text-align: left;
+        font-style: italic;
+        font-weight: bold;
     }
-     
-    table.pretty td,
-    table.pretty th {
+
+    caption:before {
+        content: "Table: "
+    }
+
+    /* Generic cell styling for header/body */
+    td, th {
         padding: 5px;
         border: 1px solid #fff;
-    }  
+    }
+
+    /* Override cell styling for header*/
+    thead {
+        th {
+            text-align: center;
+        }
+    }
+    tbody {
+        td {
+            text-align: center;
+            background: $table-even;
+        }
+        tr.odd td {
+            background: $table-odd;
+        }
+        /* Styles for columns that were sorted on */
+        tr.odd td.sorting_1 {
+            background: $table-odd;;
+        }
+        tr.even td.sorting_1 {
+            background: $table-even;;
+        }
+    }
 }
+
 
 @media screen and (min-width: $total_size) {
   aside {
