@@ -1,11 +1,11 @@
 Subtle Pelican Theme
 ====================
 
-[pelican-subtle](https://github.com/pR0Ps/pelican-svbhack) is a responsive theme for [Pelican](http://getpelican.com), it is my take on Giulio Fidente's [pelican-svbhack](https://github.com/giulivo/pelican-svbhack) theme.
+[pelican-subtle](https://github.com/pR0Ps/pelican-svbhack) is a responsive theme for [Pelican](http://getpelican.com), modified from the theme by Carey Metcalfe [pelivan-svbhack](https://github.com/https://github.com/pR0Ps/pelican-svbhack) and Giulio Fidente's [pelican-svbhack](https://github.com/giulivo/pelican-svbhack) original theme.
 
 ## Demo
 
-You can see the theme in action on [my site](http://cmetcalfe.ca/).
+You can see the theme in action on [my site](http://virantha.com/).
 
 ## Features
 
@@ -16,10 +16,18 @@ You can see the theme in action on [my site](http://cmetcalfe.ca/).
 - Google Authorship
 - Supports displaying a custom list of links with icons in the sidebar
 - Global keyword support
+- Seach bar
+- Hierarchical menu
+- Amazon links
+- JQuery Datatables integration for prettier tables
+
 
 ## Installing
 
-Clone the [repository](https://github.com/pR0Ps/pelican-svbhack), edit your `pelicanconf.py` and modify the `THEME` variable to point to the downloaded theme location.
+You're welcome to look at my source changes, but some of the stuff is hard-coded to my liking and not easily
+configurable for someone else's site.
+
+Clone the [repository](https://github.com/virantha/pelican-svbhack), edit your `pelicanconf.py` and modify the `THEME` variable to point to the downloaded theme location.
 
 ## pelicanconf.py
 
@@ -41,6 +49,7 @@ This theme supports a number of custom variables:
 - `SERVER_LESS`: If `True`, `static/css/style.css` will be used as the style (compile it server-side). Otherwise `static/css/style.less` will be compiled client-side with `less.js`.
 
 ## Authors
+pelican-svbhack is authored by [Virantha Ekanayake](https://github.com/virantha).
 
 pelican-subtle is authored by [pR0Ps](https://github.com/pR0Ps).
 

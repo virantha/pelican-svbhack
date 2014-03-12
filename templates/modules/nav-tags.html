@@ -1,0 +1,22 @@
+<div class='nav-class'>
+
+    <ul>
+        <li>
+            <a id='head' href="{{ SITEURL }}">Home</a> &#124; 
+            <ul>
+                <li><a href='{{SITEURL}}/{{INDEX_SAVE_AS}}'>All posts</a></li>
+                <li><a href='{{SITEURL}}/{{TAGS_URL}}'>Tags</a></li>
+            </ul>
+        </li>
+        {% for cat, text in MENU_CATEGORIES.items() %}
+            <li><a href="{{ SITEURL }}/category/{{ cat.lower() }}.html"> {{ text }} </a> </li>
+        {% endfor %}
+
+        {# for cat, articles in categories %}
+            {% if cat in MENU_CATEGORIES.keys() %}
+            <li><a href="{{ SITEURL }}/{{ cat.url }}"> {{ MENU_CATEGORIES[cat.name] }} </a> </li>
+            {% endif %}
+        {% endfor #}
+    </ul>
+</div>
+
