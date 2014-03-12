@@ -13,6 +13,7 @@
   <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables.css">
+  <link rel="stylesheet" href="/theme/tipuesearch/tipuesearch.css">
 
   <meta charset="utf-8" />
   <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1.0">
@@ -57,55 +58,54 @@
         {% endif %}
       </a>
       <h2><a href="{{ SITEURL }}" class="nohover">{{ AUTHOR }}</a></h2>
-      <p>{{ TAGLINE }}</p>
-      <ul>
-        {% for name, link in SOCIAL %}
+      <p>{{ TAGLINE }}
+        <form style="display: inline;" action="/search.html">
+            <div style="float: center;" id="tipue_focus"><input type="text" name="q" id="tipue_search_input">
+            <input class='hide' type="button" id="tipue_search_button" onclick="this.form.submit();"></div>
+        </form>
+      
+      </p>
+      <div>
+          <ul>
+            {% for name, link in SOCIAL %}
 
-        {% set temp = link|lower|replace('http://', '')|replace('https://', '') %}
-        {% set class = 'fa-external-link-square' %}
+            {% set temp = link|lower|replace('http://', '')|replace('https://', '') %}
+            {% set class = 'fa-external-link-square' %}
 
-        {% if MANGLE_EMAILS and temp.startswith('mailto:') %}
-        <li><a data-email="{{ link|reverse }}" title="You need javascript enabled to view this email" href="#" class="email" target="_blank">{{ name }}<i class="fa fa-envelope fa-lg"></i></a></li>
-        {% else %}
+            {% if MANGLE_EMAILS and temp.startswith('mailto:') %}
+            <li><a data-email="{{ link|reverse }}" title="You need javascript enabled to view this email" href="#" class="ext-links email" target="_blank">{{ name }}<i class="fa fa-envelope"></i></a></li>
+            {% else %}
 
-        {# Choosing a specific link icon #}
-        {%   if temp.startswith('bitbucket.org') %}{% set class = 'fa-bitbucket' %}
-        {% elif temp.startswith('facebook.com') %}{% set class = 'fa-facebook' %}
-        {% elif temp.startswith('github.com') %}{% set class = 'fa-github' %}
-        {% elif temp.startswith('linkedin.com') %}{% set class = 'fa-linkedin' %}
-        {% elif temp.startswith('pinterest.com') %}{% set class = 'fa-pinterest' %}
-        {% elif temp.startswith('plus.google.com') %}{% set class = 'fa-google-plus' %}
-        {% elif temp.startswith('stackoverflow.com') %}{% set class = 'fa-stack-overflow' %}
-        {% elif temp.startswith('twitter.com') %}{% set class = 'fa-twitter' %}
-        {% elif temp.startswith('vimeo.com') %}{% set class = 'fa-vimeo-square' %}
-        {% elif temp.startswith('youtube.com') %}{% set class = 'fa-youtube' %}
-        
-        {% elif temp.endswith('.pdf') %}{% set class = 'fa-file-text' %}
-        
-        {% elif '.stackexchange.com' in temp %}{% set class = 'fa-stack-exchange' %}
-        {% elif '.tumblr.com' in temp %}{% set class = 'fa-tumblr' %}
-        
-        {% elif temp.startswith('bitcoin:') %}{% set class = 'fa-bitcoin' %}
-        {% elif temp.startswith('irc:') %}{% set class = 'fa-comments' %}
-        {% elif temp.startswith('mailto:') %}{% set class = 'fa-envelope' %}
-        {% elif temp.startswith('skype:') %}{% set class = 'fa-skype' %}
-        {% endif %}
-        
-        <li><a href="{{ link }}" target="_blank">{{ name }}<i class="fa {{ class }} fa-lg"></i></a></li>
-        {% endif %}
-        {% endfor %}
-        <br>
-        {% for name, link in LINKS %}
-        <li><a href="{{ link }}" target="_blank">{{ name }}<i class="fa fa-external-link-square fa-lg"></i></a></li>
-        {% endfor %}
-        <div class='tagmenu'>
-        <ul>
-        {% for tag, articles in tags %}
-            {% if tag in MENU_TAGS.keys() %}
-            <li><a href="/tag/{{ tag }}.html"> {{ MENU_TAGS[tag] }} </a> </li>
+            {# Choosing a specific link icon #}
+            {%   if temp.startswith('bitbucket.org') %}{% set class = 'fa-bitbucket' %}
+            {% elif temp.startswith('facebook.com') %}{% set class = 'fa-facebook' %}
+            {% elif temp.startswith('github.com') %}{% set class = 'fa-github' %}
+            {% elif temp.startswith('linkedin.com') %}{% set class = 'fa-linkedin' %}
+            {% elif temp.startswith('pinterest.com') %}{% set class = 'fa-pinterest' %}
+            {% elif temp.startswith('plus.google.com') %}{% set class = 'fa-google-plus' %}
+            {% elif temp.startswith('stackoverflow.com') %}{% set class = 'fa-stack-overflow' %}
+            {% elif temp.startswith('twitter.com') %}{% set class = 'fa-twitter' %}
+            {% elif temp.startswith('vimeo.com') %}{% set class = 'fa-vimeo-square' %}
+            {% elif temp.startswith('youtube.com') %}{% set class = 'fa-youtube' %}
+            
+            {% elif temp.endswith('.pdf') %}{% set class = 'fa-file-text' %}
+            
+            {% elif '.stackexchange.com' in temp %}{% set class = 'fa-stack-exchange' %}
+            {% elif '.tumblr.com' in temp %}{% set class = 'fa-tumblr' %}
+            
+            {% elif temp.startswith('bitcoin:') %}{% set class = 'fa-bitcoin' %}
+            {% elif temp.startswith('irc:') %}{% set class = 'fa-comments' %}
+            {% elif temp.startswith('mailto:') %}{% set class = 'fa-envelope' %}
+            {% elif temp.startswith('skype:') %}{% set class = 'fa-skype' %}
             {% endif %}
-        {% endfor %}
-        </ul>
+            
+            <li><a href="{{ link }}" target="_blank"><span class="ext-links">{{ name }}</span><i class="fa {{ class }} "></i></a></li>
+            {% endif %}
+            {% endfor %}
+            <br>
+            {% for name, link in LINKS %}
+            <li><a href="{{ link }}" target="_blank">{{ name }}<i class="fa fa-external-link-square "></i></a></li>
+            {% endfor %}
         </div>
         
       </ul>
@@ -116,8 +116,8 @@
     <header>
       {% block header %}
       <p id="header">
-      <a href="{{ SITEURL }}">Home</a>
       
+      {% if False %}
       {% for p in pages|sort %}
       {% if p.url != "index.html" %}
       &#124; <a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a>
@@ -132,7 +132,9 @@
       {% if FEED_ALL_RSS %}
       &#124; <a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}">RSS Feed</a>
       {% endif %}
+      {% endif %}
       </p>
+      {% include "modules/nav-tags.html" %}
       {% endblock header %}
       {% block subheader %}
       {% endblock subheader %}
@@ -145,10 +147,12 @@
     {% endblock %}
 
     <div id="ending_message">
-        <p>&copy; {{ AUTHOR }}. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Based on theme by Carey Metcalfe, availible on <a href="https://github.com/pR0Ps/pelican-svbhack" target="_blank">GitHub</a></p>
+        <p>&copy; {{ AUTHOR }}. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Modified <a href='http://github.com/virantha/pelican-svbhack'>svbhack</a> theme, based on <a href="https://github.com/pR0Ps/pelican-svbhack" target="_blank">theme by Carey Metcalfe</a></p>
     </div>
   </main>
 
+  {% block script %}
+  {% endblock %}
   {% if SCROLL_TO_CONTENT %}
   <script type="text/javascript">
     if (window.location.pathname != '/' && window.location.pathname != '/index.html'){
@@ -166,6 +170,7 @@
         e[i].removeAttribute("data-email");
         e[i].removeAttribute("title");
         e[i].removeAttribute("class");
+        e[i].setAttribute("class","ext-links");
       }
     };
   </script>

@@ -11,7 +11,7 @@
 {% endblock %}
 
 {% block subheader %}
-<p>Category: {{ category }}
+<p>Section: {{ category }}
 {% if CATEGORY_FEED_ATOM %}
 &#124; <a href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_ATOM|format(category) }}">Atom Feed</a>
 {% endif %}

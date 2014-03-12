@@ -8,6 +8,7 @@ $blue:  #0e94ec;
 $darkerblue: lighten(blue,30%);
 $note-blue: #869898;
 
+$background: $white;
 $accent:  $blue;
 
 $table-blue: #B9CCFF;
@@ -15,12 +16,16 @@ $table-odd: $table-blue;
 $table-even: lighten( $table-blue,10%);
 
 $sans: 'PT Sans', sans-serif;
+$sans-narrow: 'PT Sans Narrow', sans-serif;
+
 $serif: 'PT Serif', serif;
 $mono: 'PT Mono', monospace;
 
 $side_size: 250px;
 $main_size: 755px;
+
 $border_color: #C2C2C2;
+$border_light_color: lighten( $border_color, 90%);
 $pag_label_size: 60px;
 $logo_size: 150px;
 
@@ -29,10 +34,11 @@ $total_size: ($side_size + $main_size + 15px);
 body {
   margin: 0;
   padding: 0;
-  background-color: $white;
+  background-color: $background;
   color: $dark-grey;
   font-family: $sans;
-  font-size: 18px;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
 }
 
 a {
@@ -54,8 +60,15 @@ hr {
   border: none;
 }
 
+.column-fix {
+    -webkit-column-break-inside: avoid;
+    -moz-column-break-inside: avoid;
+    -o-column-break-inside: avoid;
+    column-break-inside: avoid;
+    display: table;
+}
+
 div.tagmenu {
-    /*border-top: $border_color 1px solid;*/
 
     a[href]:not(.nohover) {
       color: $darkerblue;
@@ -71,12 +84,142 @@ div.tagmenu {
         display:inline;
         margin: 0px 0 0 0;
         font-weight: bold;
+        padding-left: 0;
+
+        li {
+            margin: 0 0 0 0;
+            padding: 0 0 0 0;
+            display: inline;
+            line-height: 1em;
+        }
+    }
+    .nav-button {
+        display: block;
+        border: $border_color 1px solid;
+        border-left: $border_color 4px solid;
+        margin: 10px 5px 5px 5px;
+        padding-right: 5px;
     }
 
+    .nav-button:hover {
+        background: lighten($border_color, 10%);
+    }
+}
+
+
+.nav-class{
+    border:1px solid #ccc;
+    border-width:1px 0;
+    #head {
+        font-weight: bold;
+    }
+
+    ul {
+        list-style:none;
+        margin:0;
+        padding:0;
+        text-align:left;
+
+        li {
+            position:relative;
+            display:inline;
+        }
+        a {
+            display:inline-block;
+            padding:10px;
+        }
+
+        ul {
+            position:absolute;
+            left:-9999px;
+            margin:0;
+            padding:0;
+            text-align:left;
+            background-color: $background;
+        }
+
+        ul li {
+            display: block; 
+        }
+
+        li:hover ul {
+            left:0;
+        }
+
+        li:hover a {
+            text-decoration:underline;
+            background:#f1f1f1;
+        }
+
+        li:hover ul a {
+            text-decoration:none;
+            background:none;
+        }
+
+        li:hover ul a:hover {
+            text-decoration:underline;
+            background:#f1f1f1;
+        }
+
+        ul a {
+            white-space:nowrap;
+            display:block;
+            border-bottom:1px solid #ccc;
+        }
+    }
+}
+
+#nav{
+    border:1px solid #ccc;
+    border-width:1px 0;
+    list-style:none;
+    margin:0;
+    padding:0;
+    text-align:center;
+}
+
+#nav li{
+    position:relative;
+    display:inline;
+}
+#nav a{
+    display:inline-block;
+    padding:10px;
+}
+#nav ul{
+    position:absolute;
+    left:-9999px;
+    margin:0;
+    padding:0;
+    text-align:left;
+}
+#nav ul li{
+    display:block;
+}
+#nav li:hover ul{
+    left:0;
+}
+#nav li:hover a{
+    text-decoration:underline;
+    background:#f1f1f1;
+}
+#nav li:hover ul a{
+    text-decoration:none;
+    background:none;
+}
+#nav li:hover ul a:hover{
+    text-decoration:underline;
+    background:#f1f1f1;
+}
+#nav ul a{
+    white-space:nowrap;
+    display:block;
+    border-bottom:1px solid #ccc;
 }
 
 aside {
   div#user_meta {
+    font-family: $sans-narrow;
     padding: 40px 20px 40px 20px;
     text-align: center;
 
@@ -94,25 +237,41 @@ aside {
       font-size: 14px;
     }
 
+    /* Two columns used for social links and nav*/
+    .twocol {
+        -webkit-column-count:2; /* Chrome, Safari, Opera */
+        -moz-column-count:2; /* Firefox */
+        column-count:2;
+        column-fill: auto;
+    }
+
+    .ext-links {
+        font-size: 100%;
+    }
+
+
     ul {
-      margin: 40px 0 0 0;
-      padding-left: 0;
-      font-size: 16px;
-      list-style-type: none;
+        margin: 40px 0 0 0;
+        padding-left: 0;
+        font-size: 16px;
+        list-style-type: none;
 
-      li {
-        display: block;
-        line-height: 2em;
-
-        a {
-          i {
-              padding-left: 5px;
-              color: $black;
-              width: 30px;
-              text-align: center;
-              vertical-align: middle;
-          }
+        .social-links {
+            display: inline;
         }
+        li {
+            display: block;
+            line-height: 2em;
+
+            a {
+              i {
+                  padding-left: 5px;
+                  color: $black;
+                  width: 30px;
+                  text-align: center;
+                  vertical-align: middle;
+              }
+            }
       }
     }
   }
@@ -128,7 +287,7 @@ main {
   header {
     padding: 20px 40px 20px 40px;
     border-top: $border_color 1px solid;
-    border-bottom: $border_color 1px solid;
+    border-bottom: $border_color 0px solid;
     text-align: center;
 
     p {
@@ -181,7 +340,7 @@ main {
     border-bottom-color: #940000;
     margin: 0;
     padding: 0.1em 0 0.1em 0.5em;
-    color: white;
+    color: $background;
     border-bottom: 1px solid $darkerblue;
     font-weight: bold;
 
@@ -190,7 +349,7 @@ main {
 div.table-of-content {
     float:left;
     position: fixed;
-    background-color: white;
+    background-color: $background;
     font-size: 2px;
     transition-property: font-size;
     transition-duration: 100ms;
@@ -334,6 +493,24 @@ ul.auto-toc li {
     font-size: 10px;
   }
 
+}
+/* Tipue Search
+*/
+input#tipue_search_input {
+    padding: 2px;
+    width: 100px;
+
+    float: center;
+}
+
+input#tipue_search_input:focus + input {display: inline;}
+
+.hide {display: none}
+
+input#tipue_search_button {
+    width: 36px;
+    height: 28px;
+    float: right;
 }
 /*
  * DataTables framework
