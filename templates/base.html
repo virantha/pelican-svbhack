@@ -3,10 +3,10 @@
 
 <head>
   {% if SERVER_LESS %}
-  <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/style.css">
+      <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/style.css">
   {% else %}
-  <link rel="stylesheet/less" type="text/css" href="{{ SITEURL }}/theme/css/style.less">
-  <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/1.6.1/less.min.js" type="text/javascript"></script>
+      <link rel="stylesheet/less" type="text/css" href="{{ SITEURL }}/theme/css/style.less">
+      <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/1.6.1/less.min.js" type="text/javascript"></script>
   {% endif %}
 
   <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/pygments.css">
@@ -57,6 +57,7 @@
         <img src="{{ USER_LOGO_URL }}" alt="logo" id="logo">
         {% endif %}
       </a>
+      <div id="country"></div>
       <h2><a href="{{ SITEURL }}" class="nohover">{{ AUTHOR }}</a></h2>
       <p>{{ TAGLINE }}
         <form style="display: inline;" action="/search.html">
@@ -147,7 +148,7 @@
     {% endblock %}
 
     <div id="ending_message">
-        <p>&copy; {{ AUTHOR }}. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Modified <a href='http://github.com/virantha/pelican-svbhack'>svbhack</a> theme, based on <a href="https://github.com/pR0Ps/pelican-svbhack" target="_blank">theme by Carey Metcalfe</a></p>
+        <p>&copy; {{ AUTHOR }}. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Modified <a href='http://github.com/virantha/pelican-svbhack'>svbhack</a> theme, based on <a href="https://github.com/pR0Ps/pelican-svbhack" target="_blank">theme</a> by Carey Metcalfe</p>
     </div>
   </main>
 
@@ -172,6 +173,38 @@
         e[i].removeAttribute("class");
         e[i].setAttribute("class","ext-links");
       }
+    };
+  </script>
+    <script type="text/javascript">
+    if (typeof jQuery == 'undefined') {
+        var script = document.createElement('script');
+        script.type = "text/javascript";
+        script.src = "http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js";
+        document.getElementsByTagName('head')[0].appendChild(script);
+    }
+    </script>
+    {#
+  <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"></script>
+    #}
+  <script type="text/javascript">
+    window.onload = function(){
+      $.get("http://ipinfo.io", function (response) {
+        $("#country").html(response.country);
+        response.country = "CA";
+        var country_codes = { 
+            "UK": { "id" : "virantha-uk-21", "url" : "www.amazon.co.uk"},
+            "CA": { "id" : "virantha-ca-20", "url" : "www.amazon.ca"}
+        } 
+        if (response.country in country_codes) {
+                
+            var e = document.querySelectorAll(".amazon");
+            for (var i = 0; i < e.length; i++) {
+                e[i].href = e[i].href.replace("www.amazon.com", country_codes[response.country]["url"]);
+                e[i].href = e[i].href.replace("virantha-20", country_codes[response.country]["id"]);
+                e[i].setAttribute("class","amazn");
+             }
+        }
+        }, "jsonp"); 
     };
   </script>
   {% endif %}
