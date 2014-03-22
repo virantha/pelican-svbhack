@@ -57,7 +57,6 @@
         <img src="{{ USER_LOGO_URL }}" alt="logo" id="logo">
         {% endif %}
       </a>
-      <div id="country"></div>
       <h2><a href="{{ SITEURL }}" class="nohover">{{ AUTHOR }}</a></h2>
       <p>{{ TAGLINE }}
         <form style="display: inline;" action="/search.html">
@@ -179,21 +178,22 @@
     if (typeof jQuery == 'undefined') {
         var script = document.createElement('script');
         script.type = "text/javascript";
-        script.src = "http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js";
+        script.src = "http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js";
         document.getElementsByTagName('head')[0].appendChild(script);
     }
     </script>
-    {#
-  <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"></script>
-    #}
   <script type="text/javascript">
     window.onload = function(){
       $.get("http://ipinfo.io", function (response) {
-        $("#country").html(response.country);
-        response.country = "CA";
+        //$("#country").html(response.country);
+        //response.country = "CA";
         var country_codes = { 
-            "UK": { "id" : "virantha-uk-21", "url" : "www.amazon.co.uk"},
-            "CA": { "id" : "virantha-ca-20", "url" : "www.amazon.ca"}
+            "GB": { "id" : "virantha-uk-21", "url" : "www.amazon.co.uk"},
+            "CA": { "id" : "virantha-ca-20", "url" : "www.amazon.ca"},
+            "DE": { "id" : "virantha-de-21", "url" : "www.amazon.de"},
+            "FR": { "id" : "viranthacom0c-21", "url" : "www.amazon.fr"},
+            "ES": { "id" : "viranthaco0b5-21", "url" : "www.amazon.es"},
+            "IT": { "id" : "viranthacom02-21", "url" : "www.amazon.it"}
         } 
         if (response.country in country_codes) {
                 
