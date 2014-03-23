@@ -27,6 +27,8 @@ $mono: 'PT Mono', monospace;
 $side_size: 250px;
 $main_size: 755px;
 
+$recent_color: lighten(#B9CCFF, 80%);
+
 $border_color: #C2C2C2;
 $border_light_color: lighten( $border_color, 90%);
 $pag_label_size: 60px;
@@ -311,6 +313,45 @@ main {
     }
   }
 
+  .twitter {
+    float: right;
+    clear: right;
+    width: 27%;
+  }
+  .recent-articles {
+      font-size: 80%; 
+      margin: 4px 4px 4px 4px;
+      width: 100%;
+      /*border-top: $border_color 1px solid;*/
+      padding: 4px 8px 4px 8px;
+      float: left;
+
+      .title_box  { 
+          position: relative; 
+          display: block; 
+          background-color: white;
+          font-size: 120%;
+          font-weight: bold;
+          border: $border_color 1px solid;
+          padding: 5px 5px 5px 5px;
+          margin-bottom: 4px;
+          margin-left: -4px;
+      }
+      
+
+      .date-recent {
+          font-weight: bold;
+          width: 20%;
+          float: left;
+      }
+      .title-recent {
+          max-width: 80%;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+      }
+  }
+        
   .align-right {
     padding-left: 20px;
     padding-top: 10px;
@@ -493,6 +534,7 @@ ul.auto-toc li {
     padding: 0 40px 0 40px;
     color: $med-grey;
     font-size: 10px;
+    clear: both;
   }
 
 }

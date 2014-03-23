@@ -6,9 +6,29 @@
   <div class="article_title">
     <h1><a href="{{ SITEURL }}/{{ page.url }}" class="nohover">{{ page.title }}</a></h1>
   </div>
-  <div class="article_text">
+  <div style="float:left; width:70%; padding-right:10px;" class="article_text">
     {{ page.content }}
+  {% if page.title == 'About Me'%}
+        {% set counter = [] %} 
+            <div class='recent-articles'>
+                <div class='title_box'>Recent posts</div>
+        {% for article in articles %}
+        {% if loop.index < 10 %}       
+                <div class='date-recent'> {{ article.date.strftime("%b %e '%y") }} </div>
+                <div class='title-recent'> 
+                   <a href="{{ SITEURL }}/{{ article.url }}" title="Permalink to {{ article.title|striptags }}"> 
+                    {{ article.title }} 
+                    </a>
+                </div>
+        {% endif %}
+        {% endfor %}
+            </div>
   </div>
+            <div class="twitter">
+ <a class="twitter-timeline" href="https://twitter.com/virantha" data-widget-id="260833226027827200">Tweets by @virantha</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+            </div>
+  {% endif %}
 </article>
 {% endblock %}
 
