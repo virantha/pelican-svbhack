@@ -237,6 +237,10 @@ aside {
       margin: 15px 0 5px 0;
     }
 
+    .sharing {
+      margin: 0 0 15px 0;
+      display: inline-block;
+    }
     p {
       margin: 0 0 15px 0;
       font-size: 14px;
@@ -314,9 +318,9 @@ main {
   }
 
   .twitter {
-    float: right;
-    clear: right;
-    width: 27%;
+    clear: none;
+    width: 100%;
+    float: left;
   }
   .recent-articles {
       font-size: 80%; 
@@ -441,6 +445,11 @@ ul.auto-toc li {
         display: inline;
     }
 
+    .page_text {
+      float: left;
+      padding-right: 10px;
+      width: 90%; 
+    } 
     div.article_text {
       line-height: 1.375em;
       a {
@@ -714,6 +723,10 @@ table.pretty {
       max-width: 192px;
       text-align: right;
       margin: 0 20px 0 auto;
+
+      .sharing {
+        float: right;
+      }
     }
   }
 
@@ -729,6 +742,14 @@ table.pretty {
     header {
       border-top: 0;
       text-align: left;
+    }
+    article div.page_text {
+      width: 70%;
+    }
+    .twitter {
+      width: 27%;
+      clear: right;
+      float: right;
     }
   }
 }

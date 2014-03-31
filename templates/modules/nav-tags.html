@@ -9,7 +9,16 @@
             </ul>
         </li>
         {% for cat, text in MENU_CATEGORIES.items() %}
-            <li><a href="{{ SITEURL }}/category/{{ cat.lower() }}.html"> {{ text }} </a> </li>
+            {% if text is mapping %}
+                <li><a href=#'>{{ cat }}</a>
+                <ul>{% for subcat, subtext in text.items() %}
+                        <li><a href="{{ SITEURL }}/category/{{ subcat.lower() }}.html"> {{ subtext }} </a> </li>
+                    {% endfor %}
+                </ul>
+                </li>
+            {% else %}
+                <li><a href="{{ SITEURL }}/category/{{ cat.lower() }}.html"> {{ text }} </a> </li>
+            {% endif %}
         {% endfor %}
 
         {# for cat, articles in categories %}
