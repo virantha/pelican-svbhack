@@ -22,7 +22,7 @@ $sans: 'PT Sans', sans-serif;
 $sans-narrow: 'PT Sans Narrow', sans-serif;
 
 $serif: 'PT Serif', serif;
-$mono: 'PT Mono', monospace;
+$mono: 'Ubuntu Mono', monospace;
 
 $side_size: 250px;
 $main_size: 755px;
@@ -141,6 +141,10 @@ div.tagmenu {
             padding:0;
             text-align:left;
             background-color: $background;
+            z-index: 2;
+            border-left: 1px solid $light-grey;
+            border-bottom: 1px solid $light-grey;
+            border-right: 1px solid $light-grey;
         }
 
         ul li {
@@ -460,7 +464,7 @@ ul.auto-toc li {
         margin: 2px;
         padding: 0;
         color: $black;
-        font-size: 12px;
+        font-size: 8px;
         font-family: $mono;
         background: $light-grey;
       }

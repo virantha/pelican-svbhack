@@ -13,7 +13,7 @@
 {% block subheader %}
 <p>Section: {{ category }}
 {% if CATEGORY_FEED_ATOM %}
-&#124; <a href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_ATOM|format(category) }}">Atom Feed</a>
+&#124; <a href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_ATOM|format(category|lower) }}">Atom Feed</a>
 {% endif %}
 {% if CATEGORY_FEED_RSS %}
 &#124; <a href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_RSS|format(category) }}">RSS Feed</a>

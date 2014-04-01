@@ -7,6 +7,23 @@
 {% endblock subheader %}
 
 {% block content %}
+{% if output_file == 'blog.html'%}
+<article>
+  <div class="article_text page_text">
+            <div class='recent-articles'>
+            <div class='title_box'>List of posts</div>
+            {% for article in articles_page.object_list %}
+                <div class='date-recent'> {{ article.date.strftime("%m/%e/%y") }} </div>
+                <div class='title-recent'> 
+                   <a href="{{ SITEURL }}/{{ article.url }}" title="Permalink to {{ article.title|striptags }}"> 
+                    {{ article.title }} 
+                    </a>
+                </div>
+            {% endfor %}
+            </div>
+  </div>
+  </article>
+{% else %}
 {% for article in articles_page.object_list %}
 <article>
     <h1>
@@ -25,10 +42,12 @@
 <hr />
 {% endif %}
 {% endfor %}
+{% endif %}
+
 {% endblock %}
 
 {% block footer %}
-<footer>
+<footer style="clear:both;">
 {% include "modules/pagination.html" %}
 </footer>
 {% endblock %}
